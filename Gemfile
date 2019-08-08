@@ -1,13 +1,18 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# Ruby
 ruby '2.6.3'
 
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'puma', '~> 3.11'
+# Rails
 gem 'rails', '~> 5.2.3'
-gem 'sqlite3'
+
+# Everything Else
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'puma', '~> 3.11'
+gem 'sqlite3'
+gem 'swagger-docs', '~> 0.2.9'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.7'

@@ -12,7 +12,16 @@ require "action_view/railtie"
 
 Bundler.require(*Rails.groups)
 
-module TurlistaBe
+module Turlista
+  class Config
+    APP_NAME  = ENV.fetch('APP_NAME', 'turlista')
+    BASE_PATH = ENV.fetch('BASE_PATH','http://localhost:3000')
+    DB_HOST   = ENV.fetch('DB_HOST', 'localhost')
+    DB_PORT   = ENV.fetch('DB_PORT', '5432')
+    DB_USER   = ENV.fetch('DB_USER', 'postgres')
+    DB_PASS   = ENV.fetch('DB_PASS', 'password')
+  end
+
   class Application < Rails::Application
     config.load_defaults 5.2
 

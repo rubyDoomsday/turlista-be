@@ -7,12 +7,12 @@
 default: &default
   adapter: postgresql
   encoding: utf8
-  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
-  port: <%= ENV.fetch("DB_PORT") { "5432" } %>
+  host: <%= Turlista::Config::DB_HOST %>
+  port: <%= Turlista::Config::DB_PORT %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: <%= ENV.fetch("DB_USER") { "postgres" } %>
-  password: <%= ENV.fetch("DB_PASS") { "password" } %>
+  username: <%= Turlista::Config::DB_USER %>
+  password: <%= Turlista::Config::DB_PASS %>
 
 
 development:

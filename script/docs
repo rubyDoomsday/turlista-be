@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export SD_LOG_LEVEL=1
+bundle exec rake swagger:docs
