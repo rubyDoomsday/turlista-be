@@ -5,6 +5,12 @@ _It means 'timetable' in swedish_
 Turlista is a group trip planner that simplifies the process of organizing itineraries and tracking
 expensess for you and your friends.
 
+## Documentation
+
+This project conforms to [yard](https://github.com/lsegal/yard) for code documenation, as well as
+[swagger-docs](https://github.com/richhollis/swagger-docs) for public facing API information. For
+high level design, ADRs, and additional documenation, browse the [wiki](./wiki).
+
 ## Dependencies
 
 ## Installing
