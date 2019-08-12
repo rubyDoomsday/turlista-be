@@ -1,4 +1,10 @@
 #!/bin/bash
 
+# generate API documentation
 export SD_LOG_LEVEL=1
 bundle exec rake swagger:docs
+
+# generate code documentation
+yardoc
+yard server & open http://localhost:8808
+

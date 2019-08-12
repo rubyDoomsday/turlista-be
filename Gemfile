@@ -13,6 +13,7 @@ gem 'pg', '~> 1.1', '>= 1.1.4'
 gem 'puma', '~> 3.11'
 gem 'sqlite3'
 gem 'swagger-docs', '~> 0.2.9'
+gem 'yard', '~> 0.9.20'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.7'
