@@ -10,9 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_01_30_221326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "category", limit: 300
+    t.string "description", limit: 300
+    t.string "title", limit: 300
+    t.string "location"
+    t.string "notes"
+    t.integer "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.float "amount"
+    t.integer "event_id"
+    t.integer "trip_id"
+    t.integer "covered_by_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name", limit: 300
+    t.string "status", limit: 300
+    t.integer "shopping_list_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shareables", force: :cascade do |t|
+    t.string "what", limit: 300
+    t.integer "trip_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.string "kind", limit: 300
+    t.integer "total"
+    t.integer "trip_id"
+    t.integer "volunteer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.string "title", limit: 300
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name", limit: 300
+    t.string "last_name", limit: 300
+    t.string "email", limit: 300
+    t.integer "trip_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

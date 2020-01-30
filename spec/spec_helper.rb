@@ -1,6 +1,5 @@
 require 'rails_helper'
 require 'simplecov'
-require 'factory_bot'
 require 'database_cleaner'
 
 SimpleCov.start
@@ -8,8 +7,6 @@ SimpleCov.start
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
-
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

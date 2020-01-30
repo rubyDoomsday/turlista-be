@@ -31,6 +31,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'factory_bot', '~> 5.0', '>= 5.0.2'
   gem 'faker', '~> 2.1'
+  gem 'shoulda-matchers', '~> 4.2'
   gem 'simplecov', '~> 0.17.0', require: false
 end
 
