@@ -12,6 +12,6 @@ class Trip < ApplicationRecord
   # validations
   validates :title, presence: true
   validates :start_date, presence: true
-  validates :end_date, date: { after_or_equal_to: :start_date}
+  validates :end_date, date: { after_or_equal_to: :start_date }
   validates :owner_id, presence: true
 end

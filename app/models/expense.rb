@@ -6,7 +6,7 @@ class Expense < ApplicationRecord
   belongs_to :event, optional: true
   belongs_to :covered_by, class_name: "User"
 
-  #validations
+  # validations
   validates :amount, presence: true
   validates :trip_id, presence: true
   validates :covered_by_id, presence: true

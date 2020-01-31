@@ -36,4 +36,3 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :trip_id, presence: true
 end
-
