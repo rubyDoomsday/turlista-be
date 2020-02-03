@@ -17,5 +17,11 @@ RSpec.describe User do
 
     it { is_expected.to have_many(:trips).with_foreign_key("owner_id") }
     it { is_expected.to belong_to(:trip).with_foreign_key("trip_id").optional }
+
+    it "validates email format" do
+      user = build(:user, email: "not-email")
+      expect(user.valid?).to eq false
+      expect(user.errors.messages.keys).to include(:email)
+    end
   end
 end

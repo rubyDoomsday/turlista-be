@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Migration[5.2]
   def up
-    create_table :events do |t|
+    create_table :events, id: :uuid do |t|
       t.column :start_time, :timestamp
       t.column :end_time, :timestamp, null: true
       t.column :category, :string, limit: 300

@@ -28,6 +28,7 @@ class Event < ApplicationRecord
 
   # associations
   belongs_to :trip
+  has_one :expense
 
   # validations
   validates :start_time, presence: true

@@ -1,10 +1,12 @@
-require 'rails_helper'
-require 'simplecov'
-require 'database_cleaner'
+# frozen_string_literal: true
+
+require "rails_helper"
+require "simplecov"
+require "database_cleaner"
 
 SimpleCov.start
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
 RSpec.configure do |config|
   config.before(:suite) do
@@ -30,9 +32,7 @@ RSpec.configure do |config|
 
   config.example_status_persistence_file_path = "spec/.failures.txt"
 
-  if config.files_to_run.one?
-    config.default_formatter = "doc"
-  end
+  config.default_formatter = "doc" if config.files_to_run.one?
 
   config.profile_examples = 10
 

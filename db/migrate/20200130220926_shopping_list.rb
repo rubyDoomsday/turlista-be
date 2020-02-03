@@ -1,6 +1,6 @@
 class ShoppingList < ActiveRecord::Migration[5.2]
   def up
-    create_table :shopping_lists do |t|
+    create_table :shopping_lists, id: :uuid do |t|
       t.column :kind, :string, limit: 300
       t.column :total, :integer, null: true
       t.column :trip_id, :integer

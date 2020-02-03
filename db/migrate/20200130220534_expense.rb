@@ -1,6 +1,6 @@
 class Expense < ActiveRecord::Migration[5.2]
   def up
-    create_table :expenses do |t|
+    create_table :expenses, id: :uuid do |t|
       t.column :amount, :float
       t.column :event_id, :integer, null: true
       t.column :trip_id, :integer

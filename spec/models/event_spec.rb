@@ -12,6 +12,8 @@ RSpec.describe Event do
   context "validations" do
     it { is_expected.to belong_to(:trip) }
 
+    it { is_expected.to have_one(:expense) }
+
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:trip_id) }
     it { is_expected.to validate_presence_of(:start_time) }
@@ -21,9 +23,5 @@ RSpec.describe Event do
 
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_inclusion_of(:description).in_array(Event::Descriptions::ALL) }
-
   end
 end
-
-
-
