@@ -3,15 +3,22 @@
 require "rails_helper"
 
 RSpec.describe UsersController, type: :request do
-  let(:headers) do
-    {
-      "Content-type" => "application/json",
-      "Accept" => "application/json"
-    }
+  let(:headers) { basic_auth_headers }
+
+  context "Authorization" do
+    let(:path) { users_path }
+
+    it "requires valid token" do
+      headers = basic_auth_headers(nil)
+      get path, headers: headers
+      response_matches?(error_response)
+
+      expect(json[:errors].first).to match(/unauthorized/)
+    end
   end
 
   context "#create" do
-    let(:path) { "/users" }
+    let(:path) { users_path }
 
     it "creates a user (with id)" do
       user = build(:user)
@@ -46,7 +53,7 @@ RSpec.describe UsersController, type: :request do
     let(:user) { create(:user) }
 
     it "finds a user" do
-      path = "/users/#{user.id}"
+      path = user_path(user.id)
       get path, headers: headers
       response_matches?(user)
 
@@ -56,7 +63,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it "raises error" do
-      path = "/users/invalidID123"
+      path = user_path("invalidID123")
       get path, headers: headers
       response_matches?(error_response)
 
@@ -66,7 +73,7 @@ RSpec.describe UsersController, type: :request do
 
   context "#update" do
     let(:user) { create(:user) }
-    let(:path) { "/users/#{user.id}" }
+    let(:path) { user_path(user.id) }
 
     it "updates a user" do
       update = build(:user).attributes.except("id")
@@ -101,7 +108,7 @@ RSpec.describe UsersController, type: :request do
     let(:user) { create(:user) }
 
     it "delets a user" do
-      path = "/users/#{user.id}"
+      path = user_path(user.id)
       expect(User.find(user.id)).to be_present
       delete path, headers: headers
 
@@ -110,7 +117,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it "raises error" do
-      path = "/users/user-that-does-not-exist"
+      path = user_path("does-not-exist")
       delete path, headers: headers
       response_matches?(error_response)
 
@@ -119,6 +126,7 @@ RSpec.describe UsersController, type: :request do
   end
 
   context "#index/query" do
-    it 'lists users'
+    it "lists user - without query"
+    it "lists user - with query"
   end
 end
