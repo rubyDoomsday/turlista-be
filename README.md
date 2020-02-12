@@ -8,7 +8,7 @@ expensess for you and your friends.
 ## Documentation
 
 This project conforms to [yard](https://github.com/lsegal/yard) for code documenation, as well as
-[swagger-docs](https://github.com/richhollis/swagger-docs) for public facing API information. For
+[swagger-blocks](https://github.com/fotinakis/swagger-blocks/) for public facing API information. For
 high level design, ADRs, and additional documenation, browse the [wiki](./wiki).
 
 ## Dependencies

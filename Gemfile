@@ -14,7 +14,7 @@ gem "bigdecimal", "1.3.5"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "pg", "~> 1.2", ">= 1.2.2"
 gem "puma", "~> 3.11"
-gem "swagger-docs", "~> 0.2.9"
+gem "swagger-blocks", "~> 3.0"
 gem "tzinfo-data"
 gem "yard", "~> 0.9.20"
 
