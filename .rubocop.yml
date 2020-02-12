@@ -16,3 +16,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+

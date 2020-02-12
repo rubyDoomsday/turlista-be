@@ -1,12 +1,11 @@
 # frozen_string_literal: true
-
 class UsersController < ApplicationController
   before_action :load_user, only: %i[show update destroy]
 
   def index; end
 
   def show
-    render json: @user, status: :success
+    render json: @user, status: 200
   end
 
   def create
@@ -14,7 +13,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       @user.save
-      render json: @user.to_json, status: :created
+      render json: @user.to_json, status: 201
     else
       render_errors(@user.errors)
     end
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       @user.save
-      render json: @user, status: :success
+      render json: @user, status: 200
     else
       render_errors(@user.errors)
     end
@@ -33,7 +32,7 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      render json: {}, status: :no_content
+      render json: {}, status: 204
     else
       render_errors(@user.errors)
     end

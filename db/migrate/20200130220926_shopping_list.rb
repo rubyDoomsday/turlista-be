@@ -3,8 +3,8 @@ class ShoppingList < ActiveRecord::Migration[5.2]
     create_table :shopping_lists, id: :uuid do |t|
       t.column :kind, :string, limit: 300
       t.column :total, :integer, null: true
-      t.column :trip_id, :integer
-      t.column :volunteer_id, :integer, null: true
+      t.column :trip_id, :uuid
+      t.column :volunteer_id, :uuid, null: true
       t.timestamps
     end
   end

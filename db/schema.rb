@@ -24,16 +24,16 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
     t.string "title", limit: 300
     t.string "location"
     t.string "notes"
-    t.integer "trip_id"
+    t.uuid "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "expenses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.float "amount"
-    t.integer "event_id"
-    t.integer "trip_id"
-    t.integer "covered_by_id"
+    t.uuid "event_id"
+    t.uuid "trip_id"
+    t.uuid "covered_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,15 +41,15 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
   create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", limit: 300
     t.string "status", limit: 300
-    t.integer "shopping_list_id"
+    t.uuid "shopping_list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "shareables", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "what", limit: 300
-    t.integer "trip_id"
-    t.integer "user_id"
+    t.uuid "trip_id"
+    t.uuid "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,17 +57,17 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
   create_table "shopping_lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "kind", limit: 300
     t.integer "total"
-    t.integer "trip_id"
-    t.integer "volunteer_id"
+    t.uuid "trip_id"
+    t.uuid "volunteer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "trips", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", limit: 300
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer "owner_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.uuid "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
     t.string "first_name", limit: 300
     t.string "last_name", limit: 300
     t.string "email", limit: 300
-    t.integer "trip_id"
+    t.uuid "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

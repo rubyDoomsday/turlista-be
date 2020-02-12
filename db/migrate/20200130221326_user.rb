@@ -4,7 +4,7 @@ class User < ActiveRecord::Migration[5.2]
       t.column :first_name, :string, limit: 300
       t.column :last_name, :string, limit: 300
       t.column :email, :string, limit: 300
-      t.column :trip_id, :integer
+      t.column :trip_id, :uuid
       t.timestamps
     end
   end

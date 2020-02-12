@@ -19,8 +19,8 @@ RSpec.describe Trip do
     it 'validates start before end date' do
       expect(
         build(:trip,
-              start_date: Time.now.end_of_day,
-              end_date: Time.now.beginning_of_day).valid?
+              start_date: Time.now + 1.day,
+              end_date: Time.now - 1.day).valid?
       ).to eq false
     end
 
