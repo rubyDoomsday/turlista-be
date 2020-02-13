@@ -7,17 +7,75 @@ expensess for you and your friends.
 
 ## Documentation
 
-This project conforms to [yard](https://github.com/lsegal/yard) for code documenation, as well as
-[swagger-blocks](https://github.com/fotinakis/swagger-blocks/) for public facing API information. For
-high level design, ADRs, and additional documenation, browse the [wiki](./wiki).
+### API Docs
+
+This project leverages [swagger-blocks](https://github.com/fotinakis/swagger-blocks/) for public
+facing API information.
+
+### View Code Documentation
+
+This project conforms to [yard](https://github.com/lsegal/yard) for code documentation. To view code
+docs run:
+
+```
+   script/docs
+```
+
+### Project Documentation
+
+For high level design, ADRs, and additional documentation, browse the [wiki](./wiki).
 
 ## Dependencies
 
+| Type     | Dependency |
+| -------- | ---------- |
+| database | Postgres   |
+
+### Environment Variables
+
+| name      | default        | definition           |
+| --------- | -------------- | -------------------- |
+| DB_HOST   | localhost      | the host for the DB  |
+| DB_PORT   | 5432           | The port for the DB  |
+| DB_USER   | postgres       | The DB user name     |
+| DB_PASS   | password       | The DB user password |
+| BASE_PATH | localhost:3000 | The App URL          |
+
 ## Installing
 
-## Runnning
+This project makes a best effort to conform to the
+[scripts-to-rule-them-all](https://github.com/github/scripts-to-rule-them-all) best practices.
+The following command should get your development environment up and running in no time.
+
+### Mac OS
+
+```
+  script/bootstrap # get dependencies
+  script/setup # creates a "clean slate" state
+```
+
+## Running
+
+This project has been designed to function as a stand-alone API and can be used as such or in
+conjunction with a separate front-end application.
+
+### Locally
+
+```
+  bundle exec rails s
+```
 
 ## Testing
+
+### Locally
+
+This project leverages the [parallelel_tests](https://github.com/grosser/parallel_tests) gem to
+expedite local test suite execution. Tests may be run from the command line using the provided
+script.
+
+```
+  script/test
+```
 
 ## Contributing
 
