@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# script/update: Update application to run for its current checkout.
+
+script/bootstrap
+
+echo "==> Updating db…"
+# run all database migrations to ensure everything is up to date.
+bundle exec rake db:migrate
