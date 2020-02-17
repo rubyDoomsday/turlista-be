@@ -51,7 +51,7 @@ module Pagination
     end
 
     def record_type
-      name.downcase.pluralize.to_sym
+      name.underscore.pluralize.to_sym
     end
 
     def page_limit
