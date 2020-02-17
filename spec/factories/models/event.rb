@@ -9,6 +9,10 @@ FactoryBot.define do
     title { Faker::ChuckNorris.fact }
     location { Faker::Address.full_address }
     trip_id { create(:trip).id }
+
+    trait :invalid do
+      title { nil }
+    end
   end
 end
 

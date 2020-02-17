@@ -42,9 +42,19 @@ RSpec.describe TripsController, type: :request do
 
   context "#show" do
     let(:trip) { create(:trip) }
-    let(:path) { user_trip_path(user.id, trip.id) }
+
+    it "finds a user's trip" do
+      path = user_trip_path(user.id, trip.id)
+      get path, headers: headers
+      response_matches?(trip)
+
+      expect(json[:title]).to eq trip.title
+      expect(json[:start_date]).to eq trip.start_date.to_s
+      expect(json[:end_date]).to eq trip.end_date.to_s
+    end
 
     it "finds a trip" do
+      path = trip_path(trip.id)
       get path, headers: headers
       response_matches?(trip)
 
