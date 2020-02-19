@@ -1,0 +1,56 @@
+name: Ruby
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: postgres
+        ports:
+          -  5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby for use with actions
+      uses: actions/setup-ruby@v1.0.0
+      with:
+        version: 2.6.5
+
+    - name: Build and create DB
+      env:
+        PGHOST: localhost
+        PGUSER: postgres
+        PGPORT: 5432
+        RAILS_ENV: test
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rails db:setup
+        bundle exec rake parallel:setup
+
+    - name: Run Specs
+      env:
+        DB_HOST: localhost
+        DB_USER: postgres
+        DB_PORT: 5432
+        RAILS_ENV: test
+        RACK_ENV: test
+      run: |
+        bundle exec rake parallel:spec
