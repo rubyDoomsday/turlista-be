@@ -22,7 +22,8 @@ module RequestHelper
   # @param expectations [Hash|Object] Must respond to .to_json
   # @return [Boolean]
   def response_matches?(expectations = {})
-    expect(JSON.parse(expectations.to_json).deep_symbolize_keys.keys).to include(*json.keys)
+    expect(JSON.parse(expectations.to_json).deep_symbolize_keys.keys).to include(*json.keys),
+      "expected response to match but got: #{json}"
   end
 
   private

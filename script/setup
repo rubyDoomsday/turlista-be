@@ -9,6 +9,8 @@ echo "==> Setting up DB…"
 # reset database to a fresh state.
 bin/rake db:create db:reset
 
+script/update
+
 if [ -z "$RAILS_ENV" ]; then
   # Only things for a development environment will run inside here
   # Do things that need to be done to the application to set up for the first

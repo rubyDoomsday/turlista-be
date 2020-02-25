@@ -6,5 +6,9 @@ FactoryBot.define do
     total { Faker::Commerce.price }
     trip_id { create(:trip).id }
     volunteer_id { create(:user).id }
+
+    trait :invalid do
+      kind { nil }
+    end
   end
 end

@@ -2,8 +2,14 @@
 
 # script/update: Update application to run for its current checkout.
 
-script/bootstrap
+if [ -f "Gemfile" ]; then
+  bundle check --path vendor/gems >/dev/null 2>&1  || {
+    echo "==> Installing gem dependencies…"
+    bundle install --path vendor/gems --quiet --without production
+  }
+fi
 
 echo "==> Updating db…"
 # run all database migrations to ensure everything is up to date.
+
 bundle exec rake db:migrate
