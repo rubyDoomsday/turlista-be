@@ -54,3 +54,10 @@ jobs:
         RACK_ENV: test
       run: |
         bundle exec rake parallel:spec
+
+    - name: Upload Coverage Report
+      uses: actions/upload-artifcat@master
+      if: always()
+      with:
+        name: coverage-report
+        path: coverage
