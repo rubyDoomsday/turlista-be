@@ -1,6 +1,6 @@
 # Turlista-BE
 
-![Build](https://github.com/rubyDoomsday/turlista-be/workflows/Build/badge.svg?branch=master&event=status)
+![Build](https://github.com/rubyDoomsday/turlista-be/workflows/Build/badge.svg?branch=master)
 
 _It means 'timetable' in swedish_
 
