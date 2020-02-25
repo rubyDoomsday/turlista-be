@@ -32,11 +32,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if @user.destroy
-      render json: {}, status: 204
-    else
-      render_errors(@user.errors)
-    end
+    @user.destroy
+    render json: {}, status: 204
   end
 
   private

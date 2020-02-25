@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 require "rails_helper"
-require "simplecov"
 require "database_cleaner"
-
-SimpleCov.start
 
 Dir[Rails.root.join("spec/support/**/*.rb")].sort.each { |f| require f }
 
