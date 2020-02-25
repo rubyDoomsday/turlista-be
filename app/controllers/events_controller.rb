@@ -38,11 +38,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    if @event.destroy
-      render json: {}, status: 204
-    else
-      render_errors(@event.errors)
-    end
+    @event.destroy
+    render json: {}, status: 204
   end
 
   private

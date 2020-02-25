@@ -38,11 +38,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    if @trip.destroy
-      render json: {}, status: 204
-    else
-      render_errors(@trip.errors)
-    end
+    @trip.destroy
+    render json: {}, status: 204
   end
 
   private

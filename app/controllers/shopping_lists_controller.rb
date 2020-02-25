@@ -38,11 +38,8 @@ class ShoppingListsController < ApplicationController
   end
 
   def destroy
-    if @list.destroy
-      render json: {}, status: 204
-    else
-      render_errors(@list.errors)
-    end
+    @list.destroy
+    render json: {}, status: 204
   end
 
   private
