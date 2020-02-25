@@ -24,3 +24,7 @@ if [ -n "$1" ]; then
   else
     bundle exec rake parallel:spec
 fi
+
+if [ "$COVER" = "true" ]; then
+  open coverage/index.html
+fi
