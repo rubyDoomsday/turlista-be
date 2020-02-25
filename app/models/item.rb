@@ -14,7 +14,7 @@ class Item < ApplicationRecord
 
   # validations
   validates :name, presence: true
-  validates :status, inclusion: { in: Item::Statuses::ALL }
+  validates :status, inclusion: { in: Item::Statuses::ALL, message: "invalid status" }
   validates :shopping_list_id, presence: true
 
   attribute :status, :string, default: Item::Statuses::NEEDED

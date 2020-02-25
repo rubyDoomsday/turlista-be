@@ -14,8 +14,6 @@ RSpec.describe Item do
 
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:shopping_list_id) }
-    it { is_expected.to validate_inclusion_of(:status).in_array(Item::Statuses::ALL) }
+    it { is_expected.to validate_inclusion_of(:status).in_array(Item::Statuses::ALL).with_message("invalid status") }
   end
 end
-
-

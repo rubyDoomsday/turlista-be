@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :trips, only: %i[show] do
     resources :events, only: %i[index show create update destroy]
-    resources :shopping_lists, only: %i[index show create update destroy]
+    resources :shopping_lists, only: %i[index show create update destroy] do
+      resources :items, only: %i[index create update destroy]
+    end
   end
 end
