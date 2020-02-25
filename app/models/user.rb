@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   # associations
   belongs_to :trip, inverse_of: :participants, optional: true, foreign_key: "trip_id"
+  has_many :shopping_list, inverse_of: :volunteer, foreign_key: "shopping_list_id"
   has_many :trips, inverse_of: :owner, foreign_key: "owner_id"
 
   # hooks
