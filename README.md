@@ -1,5 +1,7 @@
 # Turlista-BE
 
+![Build](https://github.com/rubyDoomsday/turlista-be/workflows/Build/badge.svg?branch=master&event=status)
+
 _It means 'timetable' in swedish_
 
 Turlista is a group trip planner that simplifies the process of organizing itineraries and tracking
