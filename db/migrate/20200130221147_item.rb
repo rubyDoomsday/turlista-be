@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ActiveRecord::Migration[5.2]
   def up
     create_table :items, id: :uuid do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Shareable < ActiveRecord::Migration[5.2]
   def up
     create_table :shareables, id: :uuid do |t|

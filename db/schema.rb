@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
   create_table "expenses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.float "amount"
     t.uuid "event_id"
+    t.string "description"
     t.uuid "trip_id"
     t.uuid "covered_by_id"
     t.datetime "created_at", null: false
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_221326) do
     t.string "last_name", limit: 300
     t.string "email", limit: 300
     t.uuid "trip_id"
+    t.uuid "shopping_list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

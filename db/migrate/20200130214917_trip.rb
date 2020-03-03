@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Trip < ActiveRecord::Migration[5.2]
   def up
     create_table :trips, id: :uuid do |t|
